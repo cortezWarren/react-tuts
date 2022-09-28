@@ -1,0 +1,16 @@
+{
+    "blogs": [
+        {
+            "title": "Lorem ipsum",
+            "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime excepturi blanditiis autem itaque voluptate hic",
+            "author": "Aristotle",
+            "id": 1
+        },
+        {
+            "title": "Dolor sit amet",
+            "body": "obcaecati cupiditate dolor! Delectus, rem. Quos sapiente ea aspernatur, voluptate corporis laboriosam officiis laborum unde?",
+            "author": "Confucius",
+            "id": 2
+        }
+    ]
+}
