@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useState } from "react";
 import Blogs from "./Blogs";
 
@@ -15,16 +16,13 @@ const Home = () => {
         setAge(age)
     }
 
-    const [blogs, setBlogs] = useState([
-        {title: 'the new one', author: 'mario', id: 1},
-        {title: 'the old one', author: 'mario', id: 2},
-        {title: 'the right one', author: 'luigi', id: 3}
-    ]);
+    const [blogs, setBlogs] = useState(null);
 
-    const handleDelete = (id) => {
-        const newBlogs = blogs.filter(blog => blog.id !== id);
-        setBlogs(newBlogs);
-    }
+    useEffect(() => {
+        fetch('http://localhost:8000/blogs')
+        .then(res => res.json())
+        .then(data => setBlogs(data))
+    },[]);
     
     return (
         <div>
@@ -33,7 +31,7 @@ const Home = () => {
             <button onClick={() => {
                 clicks('bowser',22);
             }}>changename</button>
-           <Blogs blogs={blogs} title="bloggers" handleDelete={handleDelete} />
+           { blogs && <Blogs blogs={blogs} title="bloggers" />}
         </div>
     );
 }
